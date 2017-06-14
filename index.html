@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:500px;
+            float:left;
+        }
+        div.left{
+            width:25%;
+            background:red;
+        }
+        div.cent{
+            width:50%;
+            box-sizing:border-box;/*可以改变元素以使其宽度包含填充*/
+            background:yellow;
+            padding:0 20px;
+            border: solid 10px black/*加了这个会使盒子内容溢出 但是box-sizing很好的自适应了*/
+        }
+        div.right{
+            width:25%;
+            background:blue;
+        }
+    </style>
+</head>
+
+<body>
+<div class="left"></div>
+<div class="cent"></div>
+<div class="right"></div>
+</body>
+</html>
