@@ -3,32 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        function Color() {
+            this.r = Math.floor(Math.random() * 255);
+            this.g = Math.floor(Math.random() * 255);
+            this.b = Math.floor(Math.random() * 255);
+            this.color = 'rgba(' + this.r + ',' + this.g + ',' + this.b + ',0.8)';
+            document.getElementById('left').style.background = this.color;
+
+            var getRandomColor = function(){
+                return '#'+(Math.random()*0xffffff<<0).toString(16);
+            };
+            document.getElementById('center').style.background=getRandomColor();
+
+            this.colorAngle = Math.floor(Math.random()*360);
+            this.color = 'hsla('+ this.colorAngle +',100%,50%,1)';
+            document.getElementById('right').style.background=this.color;
+        }
+    </script>
     <style>
-        div{
-            height:500px;
-            float:left;
+        div {
+            height: 500px;
+            width: 100%;
+            float: left;
         }
-        div.left{
-            width:25%;
-            background:red;
+        #left {
+            width: 25%;
         }
-        div.cent{
-            width:50%;
-            box-sizing:border-box;/*可以改变元素以使其宽度包含填充*/
-            background:yellow;
-            padding:0 20px;
-            border: solid 10px black/*加了这个会使盒子内容溢出 但是box-sizing很好的自适应了*/
+
+        #center {
+            width: 50%;
+            box-sizing: border-box; /*可以改变元素以使其宽度包含填充*/
+            padding: 0 20px;
+            border: solid 10px black /*加了这个会使盒子内容溢出 但是box-sizing很好的自适应了*/
         }
-        div.right{
-            width:25%;
-            background:blue;
+
+        #right {
+            width: 25%;
         }
     </style>
 </head>
 
-<body>
-<div class="left"></div>
-<div class="cent"></div>
-<div class="right"></div>
+<body onload="Color()">
+<div>
+    <div id="left"></div>
+    <div id="center"></div>
+    <div id="right"></div>
+</div>
 </body>
 </html>
